@@ -1,0 +1,37 @@
+type restaurant {
+    id:ID!
+    name:String!
+    description:String!
+    cuisineType:String!
+    location:String! 
+    openingTime:String!
+    closingTime:String!
+    email:String!
+    password:String! 
+}
+
+input RegisterInputRestaurant{
+    name:String!
+    description:String!
+    cuisineType:String!
+    location:String! 
+    openingTime:String!
+    closingTime:String!
+    email:String!
+    password:String!
+}
+
+input CreateMenuInput {
+    restaurantId: ID!
+    items: [MenuItemInput!]!
+}
+
+type Mutation{!
+    registerNewRestaurant(registerRestaurant : RegisterInputRestaurant): Restaurant!  
+    createMenu(menuInput: CreateMenuInput): Menu! 
+}
+
+type Query {
+    getRestaurant(restaurantId: ID!): Restaurant!
+}
+

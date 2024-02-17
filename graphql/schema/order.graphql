@@ -1,0 +1,30 @@
+
+type Order {
+    id: ID!
+    customerId: ID!
+    items: [OrderItem!]!
+    totalAmount: Float!
+    createdAt: String!
+    updatedAt: String
+}
+
+type OrderItem {
+    id: ID!
+    menuItemId: ID!
+    quantity: Int!
+    menuItem: MenuItem!
+}
+
+input OrderItemInput {
+    menuItemId: ID!
+    quantity: Int!
+}
+
+input CreateOrderInput {
+    customerId: ID!
+    items: [OrderItemInput!]!
+}
+
+extend type Mutation {
+    createOrder(orderInput: CreateOrderInput): Order!
+}

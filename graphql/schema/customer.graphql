@@ -1,0 +1,25 @@
+
+
+type customer{
+    id:ID!
+    name:String!
+    email:String!
+    password:String!
+    adderss:String!                              
+}
+
+input RegisterInput{
+    name:String!
+    email:String!
+    password:String!
+}
+
+type Mutation{
+    register(registerInput : RegisterInput): customer!
+    login(email:String! , password:String!): customer!
+     
+}
+
+type Query {
+    getCustomer(customerId: ID!): Customer!
+}

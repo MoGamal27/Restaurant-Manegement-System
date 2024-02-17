@@ -1,0 +1,34 @@
+
+
+type Menu {
+    id: ID!
+    restaurantId: ID!
+    name:String!
+}
+
+type MenuItem {
+    id: ID!
+    name: String!
+    price: Float!
+    stock:Number!
+}
+
+input MenuItemInput {
+    name: String!
+    price: Float!
+    stock:Number!
+}
+
+input CreateMenuInput {
+    restaurantId: ID!
+    name:String!
+}
+
+type Mutation {
+    createMenu(menuInput: CreateMenuInput): Menu!
+    createMenuItem(menuItemId: ID!, menuItemInput: MenuItemInput): MenuItem!
+}
+
+type Query {
+    getMenu(menuId: ID!): Menu!
+}
